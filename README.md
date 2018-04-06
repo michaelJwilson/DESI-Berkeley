@@ -1,2 +1,3 @@
-# DESI_GoBears
+# DESI-Science_GoBears
+
 Berkeley does DESI
