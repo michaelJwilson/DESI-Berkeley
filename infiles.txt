@@ -1,0 +1,26 @@
+## List of relevant input files 
+## 
+## To be loaded as fits and placed in a dictionary with key:       column 0 ... 
+## From common root directories assigned to environment variable:  column 1 ... 
+## With (then relative) file path:                                 column 2 .  
+##
+## INPUT CATS:
+ELG		DMOCKS		GaussianRandomField/v0.0.5/ELG.fits
+LRG		DMOCKS		GaussianRandomField/v0.0.5/LRG.fits
+QSO		DMOCKS		GaussianRandomField/v0.0.5/QSO.fits       
+Lya		DMOCKS		lya_forest/v0.0.2/metadata-simpleSpec.fits 
+## 
+## CHOSEN TARGETS (includes angular modulation to mimic target selection efficiencies):
+TARGETS	  	CHALLENGE   	targets/targets.fits
+##
+## TRUTH 4 TARGETS:
+TARGETSTRUTH	CHALLENGE	targets/truth.fits
+##
+## FIBER ASSIGNMENTS (A target could be assigned a fiber for multiple pointings; many worlds.)
+FIBERS	 	CHALLENGE      fiberassign/tile*.fits         
+##
+## CONDITIONS (Spectroscopic):
+CONDITIONS      CHALLENGE	survey/exposures.fits
+##
+## INPUT MATCHED OUTPUT:
+IN2OUT 	 	CHALLENGE	spectro/redux/dc17b/ztarget-dc17b.fits
