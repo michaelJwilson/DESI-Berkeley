@@ -8,7 +8,7 @@ import  os
 DMOCKS     = os.environ['DMOCKS']
 CHALLENGE  = os.environ['CHALLENGE']
 
-infiles    = open('infiles.txt', 'r')
+infiles    = open('./infiles.txt', 'r')
 
 allfits    = {}
 roots      = {'DMOCKS': DMOCKS, 'CHALLENGE': CHALLENGE}
@@ -36,6 +36,9 @@ def print_header(allfits, name, printhead = False, tile = '00098'):
     if name == "FIBERS":
       fname                = "/project/projectdirs/desi/datachallenge/dc17b/fiberassign/tile_%s.fits" % tile
       dat                  = fits.open(fname)
+
+    elif name == "TILES":
+      print("\n\nLoading tiles.\n\n")
 
     else:
       exit(1)
@@ -67,8 +70,8 @@ if __name__ == "__main__":
   for x in allfits.keys():
     print x
 
-  ## for x in ["ELG", "TARGETSTRUTH", "TARGETS", "CONDITIONS", "FIBERS", "IN2OUT"]:
-  for x in ['TILES']:
+  ## for x in ["ELG", "TARGETSTRUTH", "TARGETS", "CONDITIONS", "FIBERS", "IN2OUT", "TILES", "LRG", "QSO", "Lya"]:
+  for x in ['CONDITIONS', 'FIBERS', 'IN2OUT']:
     print_header(allfits, x)
   
   print("\n\nDone.\n\n")

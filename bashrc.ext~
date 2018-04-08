@@ -1,0 +1,71 @@
+## Global python
+## /global/common/edison/software/python/
+
+# begin .bashrc.ext
+[ -e $HOME/.dbgdot ] && echo "entering .bashrc.ext" >&2
+ 
+# User additions to .bashrc go in this file
+
+# Un-comment and modify the following template for system-specific
+# personal settings.
+#
+# if [ "$NERSC_HOST" == "edison" ]
+# then
+#   export MY_ENV_VAR="my_val"
+# fi
+
+[ -e $HOME/.dbgdot ] && echo "exiting .bashrc.ext" >&2
+# end .bashrc.ext
+
+alias bs="source"
+alias py="/global/common/edison/contrib/bccp/anaconda3/envs/bcast-anaconda-2.7/bin/python"  ## Switches to /dev/shm/local/bin/python for some reason. 
+alias ls="ls --color --hide=*~"
+alias mm="emacs -nw"
+alias ipy="ipython -i"
+alias crc="emacs -nw ~/.bashrc.ext"
+alias src="source ~/.bashrc.ext"
+alias stat="squeue -u mjwilson"
+alias quota="myquota"
+alias qsub="sbatch"
+alias qdel="scancel"
+
+alias  boss="cd /project/projectdirs/cosmo/data/sdss/dr12/boss/lss/"
+alias  tractor="cd /project/projectdirs/cosmo/data/legacysurvey/dr6/tractor"
+
+export DMOCKS="/project/projectdirs/desi/mocks/"
+export CHALLENGE="/project/projectdirs/desi/datachallenge/dc17b/"
+
+export TF_CPP_MIN_LOG_LEVEL=2
+
+## export PATH=/global/common/edison/software/python/3.6-anaconda-4.4/bin/:$PATH
+## export PATH=$PATH:/global/common/edison/contrib/bccp/anaconda3/envs/bcast-anaconda-2.7/lib/python2.7/site-packages
+
+## export PYTHONPATH="/global/homes/m/mjwilson/usr/lib/python2.7/site-packages/":"/global/common/edison/software/python/3.4-anaconda/lib/python3.4/site-packages":"/global/common/edison/software/python/3.6-anaconda-4.4/lib/python3.6/site-packages":$PYTHONPATH
+
+##export PYTHONPATH=$PYTHONPATH:./.local/edison/2.7-anaconda-4.4/lib/python2.7/site-packages:/global/common/edison/contrib/bccp/anaconda3/envs/bcast-anaconda-2.7/lib/python2.7/site-packages/
+
+function addpypath(){
+   export PYTHONPATH=$PYTHONPATH:/global/common/edison/contrib/bccp/anaconda3/envs/bcast-anaconda-2.7/lib/python2.7/site-packages/:/global/homes/m/mjwilson/.local/edison/2.7-anaconda-4.4/lib/python2.7/site-packages:/global/homes/m/mjwilson
+}
+
+export BOSSDR12="/project/projectdirs/cosmo/data/sdss/dr12/boss/lss/"
+export DR12="/scratch1/scratchdirs/mjwilson/cov/DR12/"
+
+alias desienv="source /project/projectdirs/desi/software/desi_environment.sh"
+
+function nkit(){
+   source /usr/common/contrib/bccp/conda-activate.sh ${1:-2.7}; source ~/.bashrc.ext
+}
+
+## conda create -n nbodykit -c bccp nbodykit matplotlib notebook ipython astropy^C
+
+function debug(){
+   salloc -N ${1:-1} -q ${2:-debug} -L SCRATCH
+}
+
+function interactive(){
+   salloc -N ${1:-1} -q ${2:-regular} -L SCRATCH -t 00:${3:-60}:00
+}
+
+module load python
+module load mathematica
