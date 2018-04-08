@@ -7,11 +7,12 @@ import  os
 
 DMOCKS     = os.environ['DMOCKS']
 CHALLENGE  = os.environ['CHALLENGE']
+DR12       = os.environ['DR12']
 
 infiles    = open('./infiles.txt', 'r')
 
 allfits    = {}
-roots      = {'DMOCKS': DMOCKS, 'CHALLENGE': CHALLENGE}
+roots      = {'DMOCKS': DMOCKS, 'CHALLENGE': CHALLENGE, 'DR12': DR12}
 
 
 def get_filenames(printit = True):
@@ -70,8 +71,8 @@ if __name__ == "__main__":
   for x in allfits.keys():
     print x
 
-  ## for x in ["ELG", "TARGETSTRUTH", "TARGETS", "CONDITIONS", "FIBERS", "IN2OUT", "TILES", "LRG", "QSO", "Lya"]:
-  for x in ['CONDITIONS', 'FIBERS', 'IN2OUT']:
+  ## for x in ["ELG", "TARGETSTRUTH", "TARGETS", "CONDITIONS", "FIBERS", "IN2OUT", "TILES", "LRG", "QSO", "Lya", "DR12SDATA"]:
+  for x in ['DR12SRAND']:
     print_header(allfits, x)
   
   print("\n\nDone.\n\n")

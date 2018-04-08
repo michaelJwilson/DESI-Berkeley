@@ -75,7 +75,7 @@ tiles['Position']  = transform.SkyToCartesian(tiles[10]['RA'], tilse[10]['DEC'],
 ## nbodykit.algorithms.paircount_tpcf.tpcf.SurveyData2PCF: 
 ##
 ## Default:  'RA', 'DEC', 'Redshift'   
-print SurveyData2PCF('2d', data, randoms, edges, cosmo=cosmo, Nmu=20)
+## print SurveyData2PCF('2d', data, randoms, edges, cosmo=cosmo, Nmu=20)
      
 pl.xlim(360.0,  0.0)
 pl.ylim(-20.0, 90.0)
