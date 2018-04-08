@@ -194,7 +194,7 @@ def create_catalog(plot_cubemultipoles = False, num=seed):
     
   hdu              = fits.BinTableHDU.from_columns(cols, header=hdr)
 
-  print num
+  print(num)
 
   hdu.writeto(output_dirs[mock_output] + '/desi/logmocks/lognormal_bgs_seed-%03d.fits' % num, overwrite=True)
   
