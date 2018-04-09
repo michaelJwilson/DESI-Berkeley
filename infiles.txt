@@ -24,3 +24,8 @@ CONDITIONS      CHALLENGE	survey/exposures.fits
 ##
 ## INPUT MATCHED OUTPUT:
 IN2OUT 	 	CHALLENGE	spectro/redux/dc17b/ztarget-dc17b.fits
+##
+##
+## BOSS for posterity/reference
+DR12SDATA       DR12            data/galaxy_DR12v5_LOWZ_South.fits
+DR12SRAND       DR12            data/random0_DR12v5_LOWZ_South.fits

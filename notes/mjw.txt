@@ -16,8 +16,6 @@ TARGETID uniquely classifies objects across files.
 -- DESI focal plane has a radius of 407 mm corresponding to 1.605 deg on the sky;  The enclosed area is 8.09 sq. deg
 -- IN DESI:  TILING covered all 4 pi;
 -- /desimodel/data/footprint/
--- 
--- Footprint:  'In desi', DES Otherwise;
 -- Footprint:  https://desi.lbl.gov/trac/browser/code/desimodel/trunk/data/footprint
 --             https://desi.lbl.gov/DocDB/cgi-bin/private/RetrieveFile?docid=717;filename=note.pdf;version=2
 
