@@ -1,3 +1,35 @@
-# DESI-Science_GoBears
+# DESI-Science_GoBears:  Berkeley starts with DESI
 
-Berkeley does DESI
+To use the prebuilt environment:
+
+```
+ source /usr/common/contrib/bccp/anaconda3/bin/activate bccpdesi
+```
+
+To create a basic environment yourself that includes the dependencies:
+
+```
+ source /usr/common/contrib/bccp/anaconda3/bin/activate 
+
+ # to use with srun
+ conda create -n bccpdesi --use-local nbodykit
+
+ # to use with mpirun
+ conda create -n bccpdesi -c bccp nbodykit
+
+ conda activate bccpdesi
+
+ conda install -y ipython matplotlib
+
+ pip install https://github.com/desihub/desiutil/archive/1.9.10.tar.gz
+ pip install https://github.com/desihub/desimodel/archive/0.9.1.tar.gz
+
+ install_desimodel_data
+
+ pip install https://github.com/desihub/imaginglss/archive/master.zip
+
+ conda  install scikit-learn
+ module load    fftw/3.3.4.10
+ conda  install swig
+ pip    install pyRSD
+```
