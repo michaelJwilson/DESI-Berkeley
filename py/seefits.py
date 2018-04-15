@@ -1,6 +1,7 @@
-from    astropy.io import fits
+from    astropy.io   import  fits
 
-import  numpy as np
+import  numpy        as      np
+import  collections
 import  glob
 import  os
 
@@ -9,9 +10,9 @@ DMOCKS     = os.environ['DMOCKS']
 CHALLENGE  = os.environ['CHALLENGE']
 DR12       = os.environ['DR12']
 
-infiles    = open('./infiles.txt', 'r')
+infiles    = open('../infiles.txt', 'r')
 
-allfits    = {}
+allfits    = collections.OrderedDict()
 roots      = {'DMOCKS': DMOCKS, 'CHALLENGE': CHALLENGE, 'DR12': DR12}
 
 
@@ -59,20 +60,35 @@ def print_header(allfits, name, printhead = False, tile = '00098'):
       if "COEFF" not in hdr:
         print "".join(np.str(x).ljust(25) for x in [i, hdr, dat[1].data[0][hdr], dat[1].data[1][hdr], dat[1].data[2][hdr], dat[1].data[3][hdr]])
 
+'''
+Available keys:  
+Input:      ELG, LRG, QSO, Lya
+Imaging:    TARGETS, TARGETSTRUTH, FIBERS, CONDITIONS, IN2OUT
+DR12:       DR12SDATA, DR12SRAND
+DarkSky:    DSELG, DSLRG, DSQSO, DSRAN
+Pointings:  TILES
+'''
 
 if __name__ == "__main__":
   print("\n\nWelcome to seefits.\n\n")
 
   allfits          = get_filenames(printit = False)
-  allfits['TILES'] = './desi-tiles.fits'
+  allfits['TILES'] = '../desi-tiles.fits'
 
   print("Available keys:  ")
 
   for x in allfits.keys():
     print x
 
-  ## for x in ["ELG", "TARGETSTRUTH", "TARGETS", "CONDITIONS", "FIBERS", "IN2OUT", "TILES", "LRG", "QSO", "Lya", "DR12SDATA"]:
-  for x in ['DR12SRAND']:
-    print_header(allfits, x)
-  
+  name = ""
+
+  while name is not "Exit":
+    name = input("\n\nEnter the key for your chosen file:\n")
+
+    try: 
+      print_header(allfits, name)
+
+    except:
+      raiseValueError("\n\nChosen key is not available.")
+
   print("\n\nDone.\n\n")
