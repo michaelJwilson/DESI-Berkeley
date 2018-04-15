@@ -80,10 +80,11 @@ if __name__ == "__main__":
   for x in allfits.keys():
     print x
 
-  name = ""
+  name   = None
 
   while name is not "Exit":
     name = input("\n\nEnter the key for your chosen file:\n")
+    name = str(name)
 
     try: 
       print_header(allfits, name)
